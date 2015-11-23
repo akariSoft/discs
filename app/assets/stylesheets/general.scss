@@ -1,0 +1,18 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+@media #{$small-and-down} {
+  .navbar-fixed {
+    height: 40px;
+
+    nav {
+      height: 40px;
+      line-height: 40px;
+
+      ul {
+        margin: 0.4rem;
+      }
+    }
+  }
+}

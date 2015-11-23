@@ -1,0 +1,3 @@
+Native: 682x400
+
+Extended: 853x533

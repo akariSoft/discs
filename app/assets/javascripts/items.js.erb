@@ -1,0 +1,26 @@
+var ready;
+ready = function() {
+
+  var imgHeight = $("#item-image > div > img").height() + 5 + "px";
+
+  $("#item-image").height(imgHeight);
+  $("#item-image").flip();
+
+  // $('#item-image').on('click', function(event) {
+  //   var image = $('#item-image').attr( 'src');
+  //   if(image.match(/\/assets\/01_cover-[\w]*.jpg/gi)) {
+  //     $('#item-image').attr( 'src' , "<%= image_path '02_cover.jpg' %>" );
+  //   } else {
+  //     $('#item-image').attr( 'src' , "<%= image_path '01_cover.jpg' %>" );
+  //   }
+  // });
+
+  $('.collapsible > li > .collapsible-header').on("click", function () {
+    $('html, body').animate({ scrollTop: $(document).height() }, 10000, "easeOutQuart");
+    return false;
+  });
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
