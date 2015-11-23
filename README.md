@@ -1,6 +1,6 @@
-## akariDiscs
+# akariDiscs
 
-This is the Akari Shop simple Disc Catalog System.
+Disc management for Akari Shop
 
 ### Install
 
@@ -8,3 +8,4 @@ This is the Akari Shop simple Disc Catalog System.
 2. Execute `bundle install`.
 3. Update/replace discs catalog in 'data/catalog.csv' and save it in UTF-8 encoding.
 4. Execute `rake import:catalog`.
+
