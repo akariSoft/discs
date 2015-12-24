@@ -36,7 +36,20 @@ namespace :import do
         item.languages << language unless language.nil?
       end
       
-      puts "Item: #{item.id}"
+      front_cover_file = "data/covers/%05d_front.jpg" % [item.id]
+      back_cover_file = "data/covers/%05d_back.jpg" % [item.id]
+      
+      if File.file? front_cover_file
+        item.front = File.new(front_cover_file)
+      end
+      
+      if File.file? back_cover_file
+        item.back = File.new(back_cover_file)
+      end
+      
+      item.save!
+      
+      puts "#{item.id}"
 
       counter_total += 1
       counter_imported += 1 if item.persisted?
