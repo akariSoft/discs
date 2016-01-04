@@ -2,7 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-section#item-content {
+#main-card {
+  margin: 0;
+  border-radius: 0;
+  
+  img {
+    border-radius: 0;
+    height: 566px;
+  }
+  
+  .card-content {
+    border-radius: 0;
+    padding: 10px 20px 10px 20px;
+    
+    .card-title {
+      i {
+        line-height: inherit;
+      }
+    }
+  }
+}
+
+#item-content {
   margin-left: 1em;
   margin-right: 1em;
 
@@ -20,7 +41,7 @@ section#item-content {
   }
 }
 
-section#item-image {
+#item-image {
   border-bottom-style: solid;
   border-bottom-width: medium;
   border-bottom-color: white;
