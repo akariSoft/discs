@@ -1,46 +1,29 @@
-<article class="grey-text text-lighten-5">
-  <section id="item-image">
+<div id="main-card" class="card">
+  <div id="item-image" class="card-image">
     <div class="front">
-      <%= image_tag @item.front_stored? ? @item.front.thumb('764x1081#').url : 'no_cover.jpg', id: 'item-image-front', class: 'responsive-img' %>
+      <%= image_tag @item.front_stored? ? 
+        @item.front.thumb('764x1081#').url : 
+        'no_cover.jpg', id: 'item-image-front', class: 'responsive-img' %>
     </div>
     <div class="back">
-      <%= image_tag @item.back_stored? ? @item.back.thumb('764x1081#').url : 'no_cover.jpg', id: 'item-image-back', class: 'responsive-img' %>
+      <%= image_tag @item.back_stored? ? 
+        @item.back.thumb('764x1081#').url : 
+        'no_cover.jpg', id: 'item-image-back', class: 'responsive-img' %>
     </div>
-  </section>
-  <section id="item-content" class="flow-text">
-    <ul class="collapsible" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header"><i class="material-icons">filter_drama</i></div>
-        <div class="collapsible-body">
-          <ul class="left half-width">
-            <li><strong>Title: </strong><%= @item.title %></li>
-            <li><strong>Alternative title: </strong><%= @item.alt_title %></li>
-            <!-- <li><strong>Genre: </strong><%#= @item.genre %></li> -->
-            <li><strong>Information: </strong><%= @item.info %></li>
-          </ul>
-          <ul class="right half-width">
-            <li><strong>Language: </strong><%#= @item.language %></li>
-            <li><strong>Episodes: </strong><%= @item.episodes %></li>
-            <li><strong>Number of discs: </strong><%= @item.discs %></li>
-            <li><strong>Details: </strong><%= @item.details %></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </section>
-  <!-- <section id="item-content" class="flow-text">
-    <h2>Summary <i class="material-icons">expand_more</i></h2>
-    <ul class="left half-width">
-      <li><strong>Title: </strong><%= @item.title %></li>
-      <li><strong>Alternative title: </strong><%= @item.alt_title %></li>
-      <li><strong>Genre: </strong><%#= @item.genre %></li>
-      <li><strong>Information: </strong><%= @item.info %></li>
-    </ul>
-    <ul class="right half-width">
-      <li><strong>Language: </strong><%#= @item.language %></li>
-      <li><strong>Episodes: </strong><%= @item.episodes %></li>
-      <li><strong>Number of discs: </strong><%= @item.discs %></li>
-      <li><strong>Details: </strong><%= @item.details %></li>
-    </ul>
-  </section> -->
-</article>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4 flow-text">
+      <%= @item.title %>
+      <i class="material-icons right">more_vert</i>
+    </span>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">
+      <%= @item.title %>
+      <i class="material-icons right">close</i>
+    </span>
+    <div class="flow-text">
+      <%= info_for(@item) %>
+    </div>
+  </div>
+</div>
