@@ -1,5 +1,6 @@
 <div id="main-card" class="card">
   <div id="item-image" class="card-image">
+    <%= render 'navigation_buttons' %>
     <div class="front">
       <%= image_tag @item.front_stored? ? 
         @item.front.thumb('764x1081#').url : 
@@ -12,7 +13,7 @@
     </div>
   </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4 flow-text">
+    <span class="card-title activator grey-text text-darken-4 truncate">
       <%= @item.title %>
       <i class="material-icons right">more_vert</i>
     </span>

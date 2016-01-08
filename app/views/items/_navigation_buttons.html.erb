@@ -1,0 +1,17 @@
+<%=
+   link_to_unless(@previous.nil?,
+     "<i class='material-icons'>navigate_before</i>".html_safe,
+     @previous,
+     id: 'previous-item') do |name|
+       link_to(name, '#', id: 'previous-item', class: 'disabled')
+   end
+%>
+
+<%=
+   link_to_unless(@next.nil?,
+     "<i class='material-icons'>navigate_next</i>".html_safe,
+     @next,
+     id: 'next-item') do |name|
+       link_to(name, '#', id: 'next-item', class: 'disabled')
+   end
+%>
