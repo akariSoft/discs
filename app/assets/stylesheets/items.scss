@@ -2,52 +2,65 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navigation-button {
+  @extend .btn-floating;
+  @extend .waves-effect;
+  @extend .waves-light;
+  
+  position: absolute;
+  top: 250px;
+  z-index: 2;
+  display: block;
+  background-color: $primary-color !important;
+}
+
 #main-card {
   margin: 0;
   border-radius: 0;
   
   img {
+    @extend .z-depth-1;
     border-radius: 0;
     height: 566px;
   }
   
+  #previous-item {
+    @extend .navigation-button;
+    left: 5px;
+  }
+  
+  #next-item {
+    @extend .navigation-button;
+    right: 5px;
+  }
+  
   .card-content {
     border-radius: 0;
-    padding: 10px 20px 10px 20px;
+    padding: 13px 20px 10px 20px;
     
     .card-title {
+      max-width: 340px;
+      max-height: 48px;
+      
       i {
+        position: absolute;
+        right: 20px;
         line-height: inherit;
       }
     }
   }
-}
-
-#item-content {
-  margin-left: 1em;
-  margin-right: 1em;
-
-  h2 {
-    text-align: center;
-    text-transform: uppercase;
-
-    i {
-      font-size: 3.6rem;
+  
+  .card-reveal {
+    background-color: rgba(255,255,255,0.85);
+    
+    .card-title {
+      max-width: 320px;
+      
+      i {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
     }
   }
-
-  .collapsible {
-    border: 0 !important;
-  }
-}
-
-#item-image {
-  border-bottom-style: solid;
-  border-bottom-width: medium;
-  border-bottom-color: white;
-  // padding-button: 0;
-}
-
-.half-width {
-  width: 50%;
 }

@@ -11,7 +11,14 @@
       line-height: 40px;
 
       ul {
-        margin: 0.4rem;
+        
+        li {
+          height: 40px;
+          
+          a {
+            margin-top: 0.4rem;
+          }
+        }
       }
     }
   }
