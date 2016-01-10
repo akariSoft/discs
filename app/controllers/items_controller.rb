@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @item_groups = Item.all.in_groups_of(3, false)
   end
 
   def show

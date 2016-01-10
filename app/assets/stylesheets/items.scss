@@ -64,3 +64,20 @@
     }
   }
 }
+
+#items-wrapper {
+  padding-top: 15px;
+  
+  .row {
+    margin-bottom: 20px;
+    
+    .card {
+      margin: 0;
+      
+      .card-content {
+        padding: 5px;
+        font-size: 1rem;
+      }
+    }
+  }
+}
