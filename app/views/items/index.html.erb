@@ -1,4 +1,26 @@
-<% @items.each do |item| %>
-  <%= link_to item.title, item %>
-  <br>
+<div id="items-wrapper">
+<% @item_groups.each do |group| %>
+  <div class="row">
+    <% group.each do |item| %>
+      <div class="col s4">
+        <%= link_to(item) do %>
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag item.front_stored? ? 
+                item.front.thumb('764x1081#').url : 'no_cover.jpg',
+                id: "item-#{item.id}-cover",
+                class: 'responsive-img'
+              %>
+            </div>
+            <div class="card-content">
+              <span class="flow-text truncate grey-text text-darken-4">
+                <%= item.title %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
+</div>
