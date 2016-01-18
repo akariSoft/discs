@@ -1,3 +1,5 @@
 Native: 682x400
 
 Extended: 853x533
+
+Cover resolution (original): 764x1081
