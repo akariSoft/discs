@@ -3,12 +3,12 @@
     <%= render 'navigation_buttons' %>
     <div class="front">
       <%= image_tag @item.front_stored? ? 
-        @item.front.thumb('764x1081#').url : 
+        @item.front.thumb('400x566#').url : 
         'no_cover.jpg', id: 'item-image-front', class: 'responsive-img' %>
     </div>
     <div class="back">
       <%= image_tag @item.back_stored? ? 
-        @item.back.thumb('764x1081#').url : 
+        @item.back.thumb('400x566#').url : 
         'no_cover.jpg', id: 'item-image-back', class: 'responsive-img' %>
     </div>
   </div>
