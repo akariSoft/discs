@@ -42,6 +42,9 @@ gem 'dragonfly-activerecord'
 # Admin dashboard
 gem 'administrate'
 
+# Detect user agent
+gem 'browser'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
