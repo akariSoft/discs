@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :verify_user_agent
+  
   def index
     @item_groups = Item.all.in_groups_of(3, false)
   end
