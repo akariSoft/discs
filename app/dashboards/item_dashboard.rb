@@ -19,8 +19,8 @@ class ItemDashboard < Administrate::BaseDashboard
     languages: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    front_uid: Field::String,
-    back_uid: Field::String,
+    front_uid: DragonflyField,
+    back_uid: DragonflyField,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -37,7 +37,7 @@ class ItemDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys
+  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys - [:created_at, :updated_at]
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
