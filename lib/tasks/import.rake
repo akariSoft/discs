@@ -43,11 +43,11 @@ namespace :import do
       title = row['TITLE']
       alt_title = row['ALT_TITLE']
       info = row['INFO']
-      languages = row['LANGUAGE']
+      languages = row['LANGUAGE'] || ''
       episodes = row['EPISODES']
       discs = row['DISCS'].to_i
       details = row['DETAILS']
-      genres = row['GENRE']
+      genres = row['GENRE'] || ''
 
       item = Item.create(title: title,
                          alt_title: alt_title,
