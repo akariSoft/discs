@@ -40,7 +40,8 @@ ActiveRecord::Schema.define(version: 20160227203952) do
     t.string   "back_uid"
   end
 
-  add_index "items", ["id", "title"], name: "index_items_on_id_and_title", unique: true
+  add_index "items", ["id"], name: "index_items_on_item_id", unique: true
+  add_index "items", ["title"], name: "index_items_on_item_title"
 
   create_table "items_languages", id: false, force: :cascade do |t|
     t.integer "item_id"
