@@ -51,6 +51,9 @@ group :development, :test do
   
   # Setting Puma to serve development and test environments
   gem 'puma'
+  
+  # Read environment variables from .env file for basic HTTP authentication
+  gem 'dotenv-rails'
 end
 
 group :development do
