@@ -40,7 +40,7 @@ gem 'dragonfly'
 gem 'dragonfly-activerecord'
 
 # Admin dashboard
-gem 'administrate'
+gem 'administrate', '~> 0.1.4'
 
 # Detect user agent
 gem 'browser'
