@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227203952) do
+ActiveRecord::Schema.define(version: 20160229012716) do
 
   create_table "genres", force: :cascade do |t|
     t.string   "name",       null: false
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20160227203952) do
   add_index "genres_items", ["item_id"], name: "index_genres_items_on_item_id"
 
   create_table "items", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.string   "alt_title"
     t.text     "info"
-    t.string   "episodes"
-    t.integer  "discs"
+    t.string   "episodes",   null: false
+    t.integer  "discs",      null: false
     t.text     "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
