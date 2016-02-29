@@ -31,4 +31,6 @@ class Item < ActiveRecord::Base
                                                   img.format == 'jpeg'
     end
   end
+  
+  normalize_attributes :title, :episodes, :discs, with: [ :squish, :blank ]
 end
