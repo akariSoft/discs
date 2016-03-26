@@ -15,6 +15,10 @@
         li {
           height: 40px;
           
+          &:hover, &.active {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+          
           a {
             margin-top: 0.4rem;
             
