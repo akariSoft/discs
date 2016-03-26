@@ -1,2 +1,6 @@
-<%= f.label "#{field.attribute.to_s.split('_').first}_cover" %>
-<%= f.file_field field.attribute.to_s.split('_').first %>
+<div class="field-unit__label">
+  <%= f.label "#{field.attribute.to_s.split('_').first}_cover" %>
+</div>
+<div class="field-unit__field">
+  <%= f.file_field field.attribute.to_s.split('_').first %>
+</div>

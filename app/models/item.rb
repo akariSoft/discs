@@ -1,6 +1,10 @@
 class Item < ActiveRecord::Base
   has_and_belongs_to_many :genres, -> { uniq }
   has_and_belongs_to_many :languages, -> { uniq }
+  
+  validates :title, :episodes, :discs, presence: true
+  validates :title, uniqueness: { case_sensitive: false }
+  validates :discs, numericality: { only_integer: true, greater_than: 0 }
 
   dragonfly_accessor :front do
     after_assign do |img|
@@ -32,5 +36,5 @@ class Item < ActiveRecord::Base
     end
   end
   
-  normalize_attributes :title, :episodes, :discs, with: [ :squish, :blank ]
+  normalize_attribute :title, :episodes, :discs, with: [ :squish, :blank ]
 end

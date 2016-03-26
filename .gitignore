@@ -48,3 +48,6 @@ bower.json
 
 # Ignore spring
 spring/
+
+# Ignore Byebug
+.byebug_history
