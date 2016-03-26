@@ -1,0 +1,16 @@
+label {
+  font-weight: inherit;
+}
+
+.required {
+  color: red;
+  margin-left: -1.5%;
+}
+
+.field-unit__label {
+  @include data-label;
+}
+
+.flash--error, .form-actions {
+  margin-bottom: 1.5em;
+}

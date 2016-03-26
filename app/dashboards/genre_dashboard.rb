@@ -35,7 +35,6 @@ class GenreDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :name,
-    :items,
   ]
 
   # Overwrite this method to customize how genres are displayed
