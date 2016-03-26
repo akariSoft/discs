@@ -16,40 +16,18 @@ module Admin
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
     # for more information
     
-    def update
-      @item = Item.find(params[:id])
-      
-      if @item.update_attributes(item_params)
-        flash[:notice] = "Item successfully updated"
-        redirect_to admin_item_path(@item)
-      else
-        render 'edit'
-      end
-    end
-    
-    def create
-      @item = Item.new(item_params)
-      
-      if @item.save
-        flash[:notice] = "Item saved"
-        redirect_to admin_items_path
-      else
-        render 'new'
-      end
-    end
-    
   private
-    def item_params
+    def resource_params
       params.require(:item).permit(:title,
-                                   :alt_title,
-                                   :info,
-                                   :episodes,
-                                   :discs,
-                                   :details,
-                                   { genre_ids: [] },
-                                   { language_ids: [] },
-                                   :front,
-                                   :back)
+                                  :alt_title,
+                                  :info,
+                                  :episodes,
+                                  :discs,
+                                  :details,
+                                  { genre_ids: [] },
+                                  { language_ids: [] },
+                                  :front,
+                                  :back)
     end
   end
 end
