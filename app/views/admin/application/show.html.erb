@@ -22,7 +22,7 @@ as well as a link to its edit page.
   <h1 class="header__heading"><%= content_for(:title) %></h1>
   <div class="header__actions">
     <%= link_to(
-      "Edit",
+      t('administrate.actions.edit'),
       [:edit, namespace, page.resource],
       class: "button",
     ) %>
@@ -31,8 +31,7 @@ as well as a link to its edit page.
 
 <dl>
   <% page.attributes.each do |attribute| %>
-    <dt class="attribute-label"><%= attribute.name.
-      gsub('uid', 'cover').titleize %></dt>
+    <dt class="attribute-label"><%= t("attributes.#{attribute.name.gsub('uid', 'cover').downcase}") %></dt>
 
     <dd class="attribute-data attribute-data--<%=attribute.html_class%>"
         ><%= render_field attribute %></dd>
