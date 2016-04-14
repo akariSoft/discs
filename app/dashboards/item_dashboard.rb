@@ -31,8 +31,6 @@ class ItemDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :title,
-    :genres,
-    :languages,
   ]
 
   # SHOW_PAGE_ATTRIBUTES

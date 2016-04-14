@@ -23,7 +23,6 @@ class GenreDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
-    :items,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
