@@ -100,6 +100,8 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    lazyload-rails (0.3.1)
+      nokogiri (~> 1.5)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -201,6 +203,7 @@ DEPENDENCIES
   i18n-debug
   jbuilder (~> 2.0)
   jquery-rails
+  lazyload-rails
   materialize-sass
   puma
   rails (= 4.2.6)
