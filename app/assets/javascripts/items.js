@@ -6,6 +6,11 @@ ready = function() {
   $("#item-image").height(imgHeight);
   $("#item-image").flip();
   
+  $("img").lazyload({
+    effect : "fadeIn",
+    effectspeed : 900
+  });
+  
 };
 
 $(document).ready(ready);
