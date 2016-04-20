@@ -74,6 +74,12 @@
     .card {
       margin: 0;
       
+      .card-image {
+        .responsive-img {
+          height: 158.938px !important;
+        }
+      }
+      
       .card-content {
         padding: 5px;
         font-size: 1rem;
