@@ -55,18 +55,39 @@ namespace :import do
                          episodes: episodes,
                          discs: discs,
                          details: details)
+                         
+      if item.errors.any?
+        puts "Errors found while first creating the item: #{item.title}"
+        item.errors.messages.each do |m|
+          puts "\t#{m}"
+        end
+      end
 
       genres = genres.split('/')
       genres.each do |g|
         g.strip!
+        g.capitalize!
         genre = Genre.find_or_create_by(name: g)
+        if genre.errors.any?
+          puts "Errors while creating genre #{genre.name}:"
+          genre.errors.messages.each do |m|
+            puts "\t#{m}"
+          end
+        end
         item.genres << genre unless genre.nil?
       end
       
       languages = languages.split('/')
       languages.each do |l|
         l.strip!
+        l.capitalize!
         language = Language.find_or_create_by(name: l)
+        if language.errors.any?
+          puts "Errors while creating language #{language.name}:"
+          language.errors.messages.each do |m|
+            puts "\t#{m}"
+          end
+        end
         item.languages << language unless language.nil?
       end
       
@@ -82,6 +103,12 @@ namespace :import do
       end
       
       item.save!
+      if item.errors.any?
+        puts "Errors found while saving the item: #{item.title}"
+        item.errors.messages.each do |m|
+          puts "\t#{m}"
+        end
+      end
       
       puts "#{item.id}"
 
