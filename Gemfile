@@ -48,6 +48,9 @@ gem 'browser'
 # Convert blanks to nil to avoid them to go into DB
 gem 'attribute_normalizer'
 
+# Lazy load images
+gem 'lazyload-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

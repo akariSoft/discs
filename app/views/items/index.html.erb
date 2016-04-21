@@ -9,7 +9,8 @@
               <%= image_tag item.front_stored? ? 
                 item.front.thumb('400x566#').url : 'no_cover.jpg',
                 id: "item-#{item.id}-cover",
-                class: 'responsive-img'
+                class: 'responsive-img',
+                lazy: true
               %>
             </div>
             <div class="card-content">
