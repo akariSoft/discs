@@ -1,19 +1,53 @@
 require 'csv'
+require 'optparse'
 
 namespace :import do
   desc 'Import catalog from CSV'
   task catalog: :environment do
-    filename = 'data/catalog_sample.csv'
+    
+    options = { import_path: nil }
+    banner = %q[Usage: rake import:catalog -- /import/path
+                The given path should contain a 'catalog.csv' file
+                as well as a 'covers' folder containing the discs covers.
+                
+                Import path should be a full path without any wildcards
+                (i.e., using '~' for user's HOME won't work)]
+    
+    OptionParser.new do |opts|
+      opts.banner = banner
+      opts.on('PATH', 'PATH', 'Import PATH') do |import_path|
+        options[:import_path] = import_path 
+      end
+    end.parse!
+    
+    import_path = options[:import_path].nil? ? '' : options[:import_path].strip
+    
+    if import_path.empty?
+      puts banner
+      exit
+    end
+    
+    import_path.chomp!('/')
+    
+    filename = "#{import_path}/catalog.csv"
     counter_total = counter_imported = 0
+    
+    unless File.file? filename
+      puts "No 'catalog.csv' file found!"
+      puts ''
+      puts banner
+      exit
+    end
+    
     CSV.foreach(filename, headers: true) do |row|
       title = row['TITLE']
       alt_title = row['ALT_TITLE']
       info = row['INFO']
-      languages = row['LANGUAGE']
+      languages = row['LANGUAGE'] || ''
       episodes = row['EPISODES']
       discs = row['DISCS'].to_i
       details = row['DETAILS']
-      genres = row['GENRE']
+      genres = row['GENRE'] || ''
 
       item = Item.create(title: title,
                          alt_title: alt_title,
@@ -21,23 +55,44 @@ namespace :import do
                          episodes: episodes,
                          discs: discs,
                          details: details)
+                         
+      if item.errors.any?
+        puts "Errors found while first creating the item: #{item.title}"
+        item.errors.messages.each do |m|
+          puts "\t#{m}"
+        end
+      end
 
       genres = genres.split('/')
       genres.each do |g|
         g.strip!
+        g.capitalize!
         genre = Genre.find_or_create_by(name: g)
+        if genre.errors.any?
+          puts "Errors while creating genre #{genre.name}:"
+          genre.errors.messages.each do |m|
+            puts "\t#{m}"
+          end
+        end
         item.genres << genre unless genre.nil?
       end
       
       languages = languages.split('/')
       languages.each do |l|
         l.strip!
+        l.capitalize!
         language = Language.find_or_create_by(name: l)
+        if language.errors.any?
+          puts "Errors while creating language #{language.name}:"
+          language.errors.messages.each do |m|
+            puts "\t#{m}"
+          end
+        end
         item.languages << language unless language.nil?
       end
       
-      front_cover_file = "data/covers/%05d_front.jpg" % [item.id]
-      back_cover_file = "data/covers/%05d_back.jpg" % [item.id]
+      front_cover_file = "#{import_path}/covers/%05d_front.jpg" % [item.id]
+      back_cover_file = "#{import_path}/covers/%05d_back.jpg" % [item.id]
       
       if File.file? front_cover_file
         item.front = File.new(front_cover_file)
@@ -48,6 +103,12 @@ namespace :import do
       end
       
       item.save!
+      if item.errors.any?
+        puts "Errors found while saving the item: #{item.title}"
+        item.errors.messages.each do |m|
+          puts "\t#{m}"
+        end
+      end
       
       puts "#{item.id}"
 

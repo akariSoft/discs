@@ -1,23 +1,67 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  app_title: 'Akari Shop - Discs Catalog'
+
+  activerecord:
+    models:
+      item:
+        one: 'Item'
+        other: 'Items'
+      genre:
+        one: 'Genre'
+        other: 'Genres'
+      language:
+        one: 'Language'
+        other: 'Languages'
+  errors:
+    format: '%{attribute}: %{message}'
+    messages:
+      blank: 'No value has been entered.'
+      not_a_number: 'The value is not a number.'
+      greater_than: 'The value should be greater than zero.'
+      not_an_integer: 'The value should be an integer.'
+      taken: 'The value already exists in the database.'
+
+  attributes:
+  #General attributes
+    id: 'Id'
+  
+  # Item attributes
+    title: 'Title'
+    alt_title: 'Alternative title'
+    genre: 'Genre'
+    genres: 'Genres'
+    info: 'Information'
+    lang: 'Language'
+    language: 'Language'
+    languages: 'Languages'
+    episodes: 'Episodes'
+    discs: 'Disc number'
+    details: 'Details'
+    front_cover: 'Front cover'
+    back_cover: 'Back cover'
+  
+  # Genre and Language attributes
+    name: 'Name'
+    item: 'Item'
+    items: 'Items'
+
+# Search
+  search: 'Search'
+  search_hint: 'Press enter to search'
+
+# Generic words
+  new: 'New'
+  back: 'Back'
+  create: 'Create'
+  update: 'Update'
+  
+# Notifications
+  error_count:
+    one: 'Theres 1 error that prevent this %{resource} from being saved'
+    other: 'There are %{count} errors that prevent this %{resource} from being saved'
+
+# Administrate translations
+  administrate:
+    actions:
+      destroy: "Delete"

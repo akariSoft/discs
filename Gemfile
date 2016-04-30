@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -39,9 +39,27 @@ gem 'materialize-sass'
 gem 'dragonfly'
 gem 'dragonfly-activerecord'
 
+# Admin dashboard
+gem 'administrate', '~> 0.1.4'
+
+# Detect user agent
+gem 'browser'
+
+# Convert blanks to nil to avoid them to go into DB
+gem 'attribute_normalizer'
+
+# Lazy load images
+gem 'lazyload-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+  # Setting Puma to serve development and test environments
+  gem 'puma'
+  
+  # Read environment variables from .env file for basic HTTP authentication
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -50,5 +68,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  # Look up for missing translations
+  gem 'i18n-debug'
 end
 

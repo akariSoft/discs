@@ -1,0 +1,103 @@
+---
+es:
+  app_title: 'Akari Shop - Catálogo de discos'
+
+  activerecord:
+    models:
+      item:
+        one: 'Ítem'
+        other: 'Ítems'
+      genre:
+        one: 'Género'
+        other: 'Géneros'
+      language:
+        one: 'Idioma'
+        other: 'Idiomas'
+  errors:
+    format: '%{attribute}: %{message}'
+    messages:
+      blank: 'No se ha introducido ningún valor.'
+      not_a_number: 'El valor introducido no es un número.'
+      greater_than: 'El valor introducido debe ser mayor que cero.'
+      not_an_integer: 'El valor introducido debe ser un entero.'
+      taken: 'El valor introducido ya existe en la base de datos.'
+
+  attributes:
+  #General attributes
+    id: 'Id'
+  
+  # Item attributes
+    title: 'Título'
+    alt_title: 'Título alternativo'
+    genre: 'Género'
+    genres: 'Géneros'
+    info: 'Información'
+    lang: 'Idioma'
+    language: 'Idioma'
+    languages: 'Idiomas'
+    episodes: 'Episodios'
+    discs: 'Número de discos'
+    details: 'Detalles'
+    front_cover: 'Portada'
+    back_cover: 'Contraportada'
+  
+  # Genre and Language attributes
+    name: 'Nombre'
+    item: 'Ítem'
+    items: 'Ítems'
+
+# Search
+  search: 'Buscar'
+  search_hint: 'Presiona enter para buscar'
+
+# Generic words
+  new: 'Nuevo'
+  back: 'Atrás'
+  create: 'Crear'
+  update: 'Actualizar'
+  
+# Notifications
+  error_count:
+    one: 'Existe 1 error que impide guardar este %{resource}'
+    other: 'Existen %{count} errores que impiden guardar este %{resource}'
+  
+# Kaminari pagination
+  views:
+    pagination:
+      first: "&laquo; Primero"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} encontrado"
+          one: "Mostrando <b>1</b> %{entry_name}"
+          other: "Mostrando <b>todos los %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> en total"
+
+# Administrate translations
+  administrate:
+    actions:
+      confirm: "¿Estás seguro?"
+      destroy: "Eliminar"
+      edit: "Editar"
+      show: "Mostrar"
+    controller:
+      create:
+        success: "%{resource} creado exitosamente."
+      destroy:
+        success: "%{resource} eliminado exitosamente."
+      update:
+        success: "%{resource} actualizado exitosamente."
+    fields:
+      has_many:
+        more: "Mostrando %{count} de %{total_count}"
+        none: "Ninguno"
+      polymorphic:
+        not_supported: "Los formularios con relaciones polimórficas no están soportados."
+      has_one:
+        not_supported: "Los formularios con relaciones HasOne no están soportados."
