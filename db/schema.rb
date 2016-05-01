@@ -14,59 +14,59 @@
 ActiveRecord::Schema.define(version: 20160229012716) do
 
   create_table "genres", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "genres_items", id: false, force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "genre_id"
+    t.integer "item_id",  limit: 4
+    t.integer "genre_id", limit: 4
   end
 
-  add_index "genres_items", ["genre_id"], name: "index_genres_items_on_genre_id"
-  add_index "genres_items", ["item_id"], name: "index_genres_items_on_item_id"
+  add_index "genres_items", ["genre_id"], name: "index_genres_items_on_genre_id", using: :btree
+  add_index "genres_items", ["item_id"], name: "index_genres_items_on_item_id", using: :btree
 
   create_table "items", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "alt_title"
-    t.text     "info"
-    t.string   "episodes",   null: false
-    t.integer  "discs",      null: false
-    t.text     "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "front_uid"
-    t.string   "back_uid"
+    t.string   "title",      limit: 255,   null: false
+    t.string   "alt_title",  limit: 255
+    t.text     "info",       limit: 65535
+    t.string   "episodes",   limit: 255,   null: false
+    t.integer  "discs",      limit: 4,     null: false
+    t.text     "details",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "front_uid",  limit: 255
+    t.string   "back_uid",   limit: 255
   end
 
-  add_index "items", ["id"], name: "index_items_on_item_id", unique: true
-  add_index "items", ["title"], name: "index_items_on_item_title"
+  add_index "items", ["id"], name: "index_items_on_item_id", unique: true, using: :btree
+  add_index "items", ["title"], name: "index_items_on_item_title", using: :btree
 
   create_table "items_languages", id: false, force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "language_id"
+    t.integer "item_id",     limit: 4
+    t.integer "language_id", limit: 4
   end
 
-  add_index "items_languages", ["item_id"], name: "index_items_languages_on_item_id"
-  add_index "items_languages", ["language_id"], name: "index_items_languages_on_language_id"
+  add_index "items_languages", ["item_id"], name: "index_items_languages_on_item_id", using: :btree
+  add_index "items_languages", ["language_id"], name: "index_items_languages_on_language_id", using: :btree
 
   create_table "languages", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "storage_chunks", force: :cascade do |t|
-    t.integer "file_id"
-    t.integer "idx"
-    t.binary  "encoded_data"
+    t.integer "file_id",      limit: 4
+    t.integer "idx",          limit: 4
+    t.binary  "encoded_data", limit: 16777215
   end
 
-  add_index "storage_chunks", ["file_id"], name: "index_storage_chunks_on_file_id"
+  add_index "storage_chunks", ["file_id"], name: "index_storage_chunks_on_file_id", using: :btree
 
   create_table "storage_files", force: :cascade do |t|
-    t.text     "metadata"
+    t.text     "metadata",    limit: 65535
     t.datetime "accessed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
